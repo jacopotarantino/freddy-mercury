@@ -1,5 +1,5 @@
 {
-  "name": "freddy-mercury",
+  "name": "freddie-mercury",
   "version": "0.0.0",
   "private": true,
   "author": "Jack <jack@ofspades.com>",
@@ -21,6 +21,6 @@
     "hubot-youtube": "^0.1.2"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "0.12.x"
   }
 }

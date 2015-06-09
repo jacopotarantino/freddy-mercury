@@ -1,25 +1,60 @@
-# Description:
-#   Example scripts for you to examine and try out.
-#
-# Notes:
-#   They are commented out by default, because most of them are pretty silly and
-#   wouldn't be useful and amusing enough for day to day huboting.
-#   Uncomment the ones you want to try and experiment with.
-#
-#   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
+'use strict'
 
 module.exports = (robot) ->
 
-  # robot.hear /badger/i, (res) ->
-  #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
-  #
-  # robot.respond /open the (.*) doors/i, (res) ->
-  #   doorType = res.match[1]
-  #   if doorType is "pod bay"
-  #     res.reply "I'm afraid I can't let you do that."
-  #   else
-  #     res.reply "Opening #{doorType} doors"
-  #
+  robot.hear /i need stories/i, (responder) ->
+    robot.http("https://www.pivotaltracker.com/services/v5/projects/1315870/stories?filter=current_state%3Aunstarted")
+      .header('X-TrackerToken', 'cf521b20f4de73a7b920c5d121c3e733')
+      .header('Content-Type', 'application/json')
+      .get() (err, res, stories) ->
+        if err
+          responder.send err
+
+        stories = JSON.parse stories
+
+        responder.send '\nHere are available stories in Pivotal Tracker:\n'
+        stories.forEach (story, index, array) ->
+          responder.send "#{ story.id }: #{ story.name }"
+
+  robot.hear /start story (\d+)/i, (responder) ->
+    story_number = responder.match[1]
+    data = JSON.stringify({ current_state: "started" })
+
+    robot.http("https://www.pivotaltracker.com/services/v5/projects/1315870/stories/#{ story_number }")
+      .header('X-TrackerToken', 'cf521b20f4de73a7b920c5d121c3e733')
+      .header('Content-Type', 'application/json')
+      .put(data) (err, res, data) ->
+        if err
+          responder.send err
+        else
+          responder.send "\nStarted story ##{ story_number }\n"
+
+  robot.hear /finish story (\d+)/i, (responder) ->
+    story_number = responder.match[1]
+    data = JSON.stringify({ current_state: "finished" })
+
+    robot.http("https://www.pivotaltracker.com/services/v5/projects/1315870/stories/#{ story_number }")
+      .header('X-TrackerToken', 'cf521b20f4de73a7b920c5d121c3e733')
+      .header('Content-Type', 'application/json')
+      .put(data) (err, res, data) ->
+        if err
+          responder.send err
+        else
+          responder.send "\nFinished story ##{ story_number }\n"
+
+  robot.hear /deliver story (\d+)/i, (responder) ->
+    story_number = responder.match[1]
+    data = JSON.stringify({ current_state: "started" })
+
+    robot.http("https://www.pivotaltracker.com/services/v5/projects/1315870/stories/#{ story_number }")
+      .header('X-TrackerToken', 'cf521b20f4de73a7b920c5d121c3e733')
+      .header('Content-Type', 'application/json')
+      .put(data) (err, res, data) ->
+        if err
+          responder.send err
+        else
+          responder.send "\nDelivered story ##{ story_number }\n"
+
   # robot.hear /I like pie/i, (res) ->
   #   res.emote "makes a freshly baked pie"
   #
