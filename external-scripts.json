@@ -12,9 +12,10 @@
   "hubot-devops-reactions",
   "hubot-doge",
   "hubot-getbacktowork",
-  "hubot-lets-party",
   "hubot-qr",
   "hubot-has-no-idea",
   "hubot-xkcd-image",
-  "hubot-victory"
+  "hubot-victory",
+  "hubot-fliptable",
+  "hubot-domain-me"
 ]
