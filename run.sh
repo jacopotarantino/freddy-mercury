@@ -1,0 +1,1 @@
+./bin/hubot --name freddie

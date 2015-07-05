@@ -7,7 +7,6 @@
   "hubot-maps",
   "hubot-rules",
   "hubot-shipit",
-  "hubot-youtube",
   "hubot-bro",
   "hubot-caniuse",
   "hubot-devops-reactions",
@@ -16,5 +15,6 @@
   "hubot-lets-party",
   "hubot-qr",
   "hubot-has-no-idea",
-  "hubot-xkcd-image"
+  "hubot-xkcd-image",
+  "hubot-victory"
 ]
