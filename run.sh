@@ -1,1 +1,1 @@
-./bin/hubot --name freddie
+HUBOT_BITLY_ACCESS_TOKEN=cb75094f30152ffa713331d3891e82a3de5e9a6a ./bin/hubot --name freddie

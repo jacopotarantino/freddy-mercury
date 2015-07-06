@@ -17,5 +17,9 @@
   "hubot-xkcd-image",
   "hubot-victory",
   "hubot-fliptable",
-  "hubot-domain-me"
+  "hubot-domain-me",
+  "hubot-bitly",
+  "hubot-business-cat",
+  "hubot-redis-brain",
+  "hubot-greetings"
 ]
