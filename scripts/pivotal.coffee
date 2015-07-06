@@ -6,12 +6,14 @@
 #   deliver story - delivers story
 'use strict'
 
-module.exports = (robot) ->
-  stories_url = 'https://www.pivotaltracker.com/services/v5/projects/1315870/stories'
+api_token = process.env.HUBOT_PIVOTAL_API_TOKEN
+project_id = process.env.HUBOT_PIVOTAL_PROJECT_ID
+stories_url = "https://www.pivotaltracker.com/services/v5/projects/#{ project_id }/stories"
 
+module.exports = (robot) ->
   robot.hear /i need stories/i, (responder) ->
     robot.http("#{ stories_url }?filter=current_state%3Aunstarted")
-      .header('X-TrackerToken', 'cf521b20f4de73a7b920c5d121c3e733')
+      .header('X-TrackerToken', api_token)
       .header('Content-Type', 'application/json')
       .get() (err, res, stories) ->
         if err
@@ -26,7 +28,7 @@ module.exports = (robot) ->
 
   robot.hear /my stories/i, (responder) ->
     robot.http("#{ stories_url }?filter=owner%3A\"Jack%20Tarantino\"")
-      .header('X-TrackerToken', 'cf521b20f4de73a7b920c5d121c3e733')
+      .header('X-TrackerToken', api_token)
       .header('Content-Type', 'application/json')
       .get() (err, res, stories) ->
         if err
@@ -46,7 +48,7 @@ module.exports = (robot) ->
     data = JSON.stringify({ current_state: "started" })
 
     robot.http("#{ stories_url }/#{ story_number }")
-      .header('X-TrackerToken', 'cf521b20f4de73a7b920c5d121c3e733')
+      .header('X-TrackerToken', api_token)
       .header('Content-Type', 'application/json')
       .put(data) (err, res, data) ->
         if err
@@ -59,7 +61,7 @@ module.exports = (robot) ->
     data = JSON.stringify({ current_state: "finished" })
 
     robot.http("#{ stories_url }/#{ story_number }")
-      .header('X-TrackerToken', 'cf521b20f4de73a7b920c5d121c3e733')
+      .header('X-TrackerToken', api_token)
       .header('Content-Type', 'application/json')
       .put(data) (err, res, data) ->
         if err
@@ -72,7 +74,7 @@ module.exports = (robot) ->
     data = JSON.stringify({ current_state: "started" })
 
     robot.http("#{ stories_url }/#{ story_number }")
-      .header('X-TrackerToken', 'cf521b20f4de73a7b920c5d121c3e733')
+      .header('X-TrackerToken', api_token)
       .header('Content-Type', 'application/json')
       .put(data) (err, res, data) ->
         if err
