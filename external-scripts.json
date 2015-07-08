@@ -21,5 +21,10 @@
   "hubot-bitly",
   "hubot-business-cat",
   "hubot-redis-brain",
-  "hubot-greetings"
+  "hubot-greetings",
+  "hubot-ehwha",
+  "hubot-huh",
+  "hubot-dinner",
+  "hubot-badges",
+  "hubot-cheer"
 ]
