@@ -13,6 +13,7 @@
     "hubot-business-cat": "^1.2.2",
     "hubot-caniuse": "^1.0.3",
     "hubot-cheer": "^0.1.0",
+    "hubot-cheers": "^1.0.0",
     "hubot-devops-reactions": "^1.0.2",
     "hubot-diagnostics": "0.0.1",
     "hubot-dinner": "^0.0.3",
