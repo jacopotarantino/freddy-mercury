@@ -30,5 +30,6 @@
   "hubot-lmk",
   "hubot-artsy",
   "hubot-cheer",
-  "hubot-cheers"
+  "hubot-cheers",
+  "hubot-heroku-keepalive"
 ]

@@ -26,6 +26,7 @@
     "hubot-greetings": "^1.0.0",
     "hubot-has-no-idea": "^1.2.0",
     "hubot-help": "^0.1.1",
+    "hubot-heroku-keepalive": "0.0.4",
     "hubot-hipchat": "^2.12.0-5",
     "hubot-huh": "^1.0.1",
     "hubot-lmk": "^0.2.0",
