@@ -31,6 +31,7 @@
     "hubot-huh": "^1.0.1",
     "hubot-lmk": "^0.2.0",
     "hubot-maps": "0.0.2",
+    "hubot-open-weather-map": "0.0.2",
     "hubot-pugme": "^0.1.0",
     "hubot-qr": "0.0.2",
     "hubot-redis-brain": "0.0.3",

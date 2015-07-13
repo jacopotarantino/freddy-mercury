@@ -31,5 +31,6 @@
   "hubot-artsy",
   "hubot-cheer",
   "hubot-cheers",
-  "hubot-heroku-keepalive"
+  "hubot-heroku-keepalive",
+  "hubot-open-weather-map"
 ]
